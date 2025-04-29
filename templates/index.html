@@ -70,14 +70,86 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
+   
+.settings-icon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.hamburger-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+#settings-toggle {
+  display: none;
+}
+
+#settings-toggle:checked + .hamburger-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#settings-toggle:checked + .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+#settings-toggle:checked + .hamburger-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.settings-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 200px;
+  background-color: gray;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#settings-toggle:checked ~ .settings-menu {
+  display: block;
+}
+
+
     </style>
 </head>
 <body>
+    <div class="settings-icon">
+  <input type="checkbox" id="settings-toggle">
+  <label for="settings-toggle" class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+      </label>
+  <div class="settings-menu">
+    <!-- Ilagay mo ang mga settings options mo dito -->
+    <ul>
+      <li><a href="/templates/login.html">How to get token</a></li>
+     
+    </ul>
+  </div>
+</div>
+
     <header>
-        <h1>Vern alias Vrax Facebook Auto Share</h1>
+        <h1>Raniel Hiyan Facebook Auto Share</h1>
     </header>
     <main>
         <form id="shareForm">
+            
             <h2>Share Your Post</h2>
             <label for="cookie">Facebook Cookie:</label>
             <input type="text" id="cookie" name="cookie" placeholder="Enter your FB cookie" required>
